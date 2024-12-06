@@ -1,29 +1,33 @@
 {
   "name": "msfs-simconnect-api-wrapper",
-  "version": "4.6.1",
-  "description": "A convenient SimConnect API for playing with Microsoft Flight Simulator 2020",
-  "main": "msfs-api.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/index.ts",
   "type": "module",
+  "scripts": {
+    "prebuild": "pnpm clean",
+    "build": "tsc -p tsconfig.build.json",
+    "postbuild": "tsc-alias -p tsconfig.build.json",
+    "clean": "rimraf dist",
+    "prerun": "pnpm build",
+    "run": "node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@types/node": "^22.10.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "prettier": "^3.4.1",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0"
+  },
   "dependencies": {
     "node-simconnect": "^4.0.0"
-  },
-  "scripts": {
-    "test": "node test/test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pomax/msfs-simconnect-api-wrapper.git"
-  },
-  "keywords": [
-    "simconnect",
-    "msfs",
-    "msfs2020",
-    "node"
-  ],
-  "author": "Pomax",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/Pomax/msfs-simconnect-api-wrapper/issues"
-  },
-  "homepage": "https://github.com/Pomax/msfs-simconnect-api-wrapper#readme"
+  }
 }
