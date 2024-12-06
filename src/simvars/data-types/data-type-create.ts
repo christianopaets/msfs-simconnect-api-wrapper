@@ -1,4 +1,4 @@
-import { SimConnectDataType } from "node-simconnect";
+import { RawBuffer, SimConnectDataType } from "node-simconnect";
 import { DataSetError, DataTypeError } from "@api/errors";
 
 type CaseInsensitive<T extends string> = T | `${string & {}}`;
@@ -24,7 +24,7 @@ function booleanCoercion<T>(value: T): number | T {
 export const dataTypeCreate = <T extends DataTypeName>(name: T, settable = false) => {
   return {
     data_type: getSimConnectDataType(name),
-    read: (data: Record<`read${typeof name}`, () => void>) => data[`read${name}`](),
+    read: (data: RawBuffer) => data[`read${name}` as unknown as "readInt32"](),
     write: settable
       ? (buffer: Record<`write${typeof name}`, (value: unknown) => void>, value: unknown) => {
           value = booleanCoercion(value);

@@ -4,13 +4,14 @@
   "description": "",
   "main": "/src/index.ts",
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "prebuild": "pnpm clean",
     "build": "tsc -p tsconfig.build.json",
     "postbuild": "tsc-alias -p tsconfig.build.json",
     "clean": "rimraf dist",
     "prerun": "pnpm build",
-    "run": "node ./dist/index.js"
+    "run": "node ./dist/index.js --inspect"
   },
   "keywords": [],
   "author": "",

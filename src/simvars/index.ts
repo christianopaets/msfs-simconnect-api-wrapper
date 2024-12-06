@@ -36,3 +36,4 @@ export const SimVars = {
 
 export * from "./units/index.js";
 export * from "./data-types/index.js";
+export type SimVarKey = keyof typeof SimVars;
